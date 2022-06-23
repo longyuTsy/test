@@ -6,10 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: auto;
+            border: 1px solid cyan;
+        }
+    </style>
 </head>
 
 <body>
-    这是一个页面的开始
+    <div  id="box" class="box"></div>
 </body>
-
+<script>
+    fetch('https://geo.datav.aliyun.com/areas_v3/bound/all.json').then(res => {
+        console.log(res);
+    });
+    
+</script>
 </html>
