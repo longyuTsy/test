@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .item {
+            padding-bottom: 20px;
+        }
+
+        .input {
+            height: 20px;
+        }
+
+        .messge {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="item">
+            <input class="input" type="text" oninput="handleChange(event)" />
+            <div class="message"></div>
+        </div>
+        <div class="item">
+            <input class="input" type="text" oninput="handleChange(event)" />
+            <div class="message"></div>
+        </div>
+        <div class="item">
+            <input class="input" type="text" oninput="handleChange(event)" />
+            <div class="message"></div>
+        </div>
+    </div>
+
+</body>
+<script>
+    function handleChange (e) {
+        const value = e.target.value
+        const node = e.currentTarget
+        const messge = node.nextElementSibling
+        const nodes = document.querySelectorAll('.input')
+        let msg = ''
+        if (!value) msg = 'empty'
+        else {
+            if (Object.values(nodes).map(elemtnt => elemtnt.value).filter(inner => inner == value).length > 1) msg = '输入内容和其他输入框内容重复' + '\n'
+            if (value.length > 10) msg = msg + 'overlength' + '\n'
+        }
+        messge.innerHTML = msg
+    }
+
+</script>
+
+
+</html>
