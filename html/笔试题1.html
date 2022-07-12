@@ -45,6 +45,12 @@
 
 </body>
 <script>
+    function handleBlur (e) {
+        const value = e.target.value
+        const node = e.currentTarget
+        const messge = node.nextElementSibling
+        if (!value) messge.innerHTML = 'empty'
+    }
     function handleChange (e) {
         const value = e.target.value
         const node = e.currentTarget
